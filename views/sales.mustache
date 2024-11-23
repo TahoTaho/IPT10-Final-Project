@@ -1,0 +1,29 @@
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">{{title}}</h4>
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Product Name</th>
+                        <th>Quantity Sold</th>
+                        <th>Total</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#sales}}
+                    <tr>
+                        <td>{{sale_id}}</td>
+                        <td>{{product_name}}</td>
+                        <td>{{quantity_sold}}</td>
+                        <td>{{total}}</td>
+                        <td>{{sale_date}}</td>
+                    </tr>
+                    {{/sales}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

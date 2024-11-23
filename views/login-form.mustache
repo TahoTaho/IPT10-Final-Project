@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/views/login-design.css"> 
+</head>
+<body>
+
+    <div class="main__container">
+        <h2>Login Form</h2>
+
+        {{#errors}}
+        <div class="alert alert-danger error-messages" role="alert">
+            <ul>
+                {{#errors}}
+                    <li>{{.}}</li>
+                {{/errors}}
+            </ul>
+        </div>
+        {{/errors}}
+
+        {{#remaining_attempts}}
+        <div class="alert alert-warning" role="alert">
+            Attempts remaining: {{remaining_attempts}}
+        </div>
+        {{/remaining_attempts}}
+
+        <form action="/login" method="POST">
+            <div class="mb-3">
+                <label for="username" class="form-label">Username or Email (required):</label>
+                <input type="text" class="form-control" id="username" name="username" placeholder="Username or Email" required oninput="toggleLoginButton()">
+            </div>
+
+            <div class="mb-3">
+                <label for="password" class="form-label">Password (required):</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Password" required oninput="toggleLoginButton()">
+            </div>
+
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-primary {{#form_disabled}}btn-disabled{{/form_disabled}}" id="login-button" {{#form_disabled}}disabled{{/form_disabled}}>Login</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function toggleLoginButton() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const loginButton = document.getElementById('login-button');
+
+            loginButton.disabled = !(username && password);
+            if (loginButton.disabled) {
+                loginButton.classList.add('btn-disabled');
+            } else {
+                loginButton.classList.remove('btn-disabled');
+            }
+        }
+    </script>
+
+</body>
+</html>

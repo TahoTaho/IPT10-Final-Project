@@ -1,0 +1,66 @@
+<div class="card">
+    <div class="card-body">
+        <div id="Add-New">
+            <h4 class="card-title">{{title}}</h4>
+            <div> 
+                <a href="/manage-sales/" class="btn btn-primary">Show All Sales</a> 
+            </div>
+        </div>
+        <div class="table-responsive">
+            <form method="POST" action="/edit-sale?id={{sale_id}}">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Product Name</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                            <th>Total</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <input 
+                                    type="text" 
+                                    class="form-control" 
+                                    name="product_name" 
+                                    value="{{product.name}}">
+                            </td>
+                            <td>
+                                <input 
+                                    type="number" 
+                                    class="form-control" 
+                                    name="quantity" 
+                                    value="{{sale.qty}}">
+                            </td>
+                            <td>
+                                <input 
+                                    type="number" 
+                                    class="form-control" 
+                                    name="price" 
+                                    value="{{product.sale_price}}">
+                            </td>
+                            <td>
+                                <input 
+                                    type="number" 
+                                    class="form-control" 
+                                    name="total" 
+                                    value="{{sale.price}}">
+                            </td>
+                            <td>
+                                <input 
+                                    type="date" 
+                                    class="form-control datepicker" 
+                                    name="sale_date" 
+                                    value="{{sale.date}}">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <button type="submit" class="btn btn-success mt-3">Update Sale</button>
+            </form>
+        </div>
+    </div>
+</div>

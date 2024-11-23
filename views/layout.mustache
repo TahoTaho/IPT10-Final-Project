@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    <style>
+      /* Prevent FOUC: Hide body content until styles are fully loaded */
+      body {
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity 0.2s ease-in-out; /* Smooth fade-in */
+      }
+    </style>
+    {{> head }}
+  </head>
+  <body>
+    <div class="container-scroller">
+      {{> navbar }}
+      <div class="container-fluid page-body-wrapper">
+        {{> sidebar }}
+        <div class="main-panel">
+          <div class="content-wrapper">
+            {{{ content }}}
+          </div>
+          {{> footer }}
+        </div>
+      </div>
+    </div>
+    {{> scripts }}
+    <script>
+      // Show body once the page is fully loaded
+      window.addEventListener("load", function () {
+        document.body.style.visibility = "visible";
+        document.body.style.opacity = "1";
+      });
+    </script>
+  </body>
+</html>

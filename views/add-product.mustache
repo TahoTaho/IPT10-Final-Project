@@ -1,0 +1,57 @@
+<div class="row">
+    <div class="col-md-6 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Add New Category</h4>
+                <form class="forms-sample" method="POST" action="/add-category">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="categoryName" name="category_name" placeholder="Category Name">
+                    </div> 
+                    <button type="submit" class="btn btn-primary me-2">Add Category</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">All Categories</h4>
+                <div class="table-responsive">
+
+                   
+
+                    {{#message}}
+                    <div class="alert alert-info">{{message}}</div>
+                   {{/message}}
+                
+
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Categories</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#categories}}
+                            <tr>
+                                <td>{{id}}</td>
+                                <td>{{name}}</td>
+                                <td>
+                                    <a href="/edit-category?id={{category.id}}" class="btn btn-warning btn-sm">Edit</a>
+                                    <a href="/delete-category?id={{id}}" class="btn btn-danger btn-sm">Delete</a>
+
+                                </td>
+                            </tr>
+                            {{/categories}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- comment -->

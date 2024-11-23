@@ -1,0 +1,69 @@
+<div class="row">
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Date Range</h4>
+                <form class="forms-sample" method="POST" action="/sales-by-date">
+                    <div class="form-group" id="Add-New">
+                        <input type="date" class="form-control datepicker" name="start-date" value="{{start_date}}">
+                        <input type="date" class="form-control datepicker" name="end-date" value="{{end_date}}">
+                    </div>
+                    <button type="submit" class="btn btn-primary me-2">Generate Report</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <div id="Add-New">
+                <h4 class="card-title">Sales Report</h4>
+                <div> <a href="/export-sales-pdf?start-date={{start_date}}&end-date={{end_date}}" class="btn btn-primary text-white me-0"><i class="icon-download"></i> Export</a> </div>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Product Title</th>
+                            <th>Buying Price</th>
+                            <th>Selling Price</th>
+                            <th>Quantity Sold</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#sales}}
+                        <tr>
+                            <td>{{sale_date}}</td>
+                            <td>{{product_name}}</td>
+                            <td>{{buy_price}}</td>
+                            <td>{{sale_price}}</td>
+                            <td>{{quantity_sold}}</td>
+                            <td>{{total}}</td>
+                        </tr>
+                        {{/sales}}
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>Grand Total</td>
+                            <td>{{grand_total}}</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>Profit</td>
+                            <td>{{profit}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

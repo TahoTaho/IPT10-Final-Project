@@ -1,0 +1,15 @@
+<div class="row">
+    <div class="col-md-6 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Editing {{category.name}}</h4>
+                <form class="forms-sample" method="POST" action="/edit-category?id={{category.id}}">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="categoryName" name="category_name" placeholder="Category Name" value="{{category.name}}">
+                    </div> 
+                    <button type="submit" class="btn btn-primary me-2">Update Category</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
